@@ -1,4 +1,5 @@
 ﻿using System;
+using static System.Console;
 
 namespace Revision_DS_Algo
 {
@@ -6,28 +7,44 @@ namespace Revision_DS_Algo
     {
         static void Main(string[] args)
         {
-            Node first = new Node() { value = 1 };
+            Stack stack = new Stack(4);
+            stack.Push("a");
+            stack.Push("b");
+            stack.Push("c");
+            stack.Push("d");
+            stack.Push("e");
 
-            Node second = new Node() { value = 2 };
-            first.Next = second;
+            WriteLine($"Peeking into the top element: {stack.Peek()}");
 
-            Node three = new Node() { value = 3 };
-            second.Next = three;
-
-            PrintList(first);
-
-            LinkedList<int> linkedList = new LinkedList<int>();
-            linkedList.AddFirst(new LinkedListNode<int>(1));
-            linkedList.AddLast(new LinkedListNode<int>(2));
-            linkedList.AddLast(new LinkedListNode<int>(3));
-            try
+            WriteLine("Stack elements: ");
+            while(!stack.IsEmpty())
             {
-                var linkList = linkedList.GetEnumerator();
+                string item = stack.Pop();
+                WriteLine($"Popped out {item}");
             }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.StackTrace);
-            }
+
+            // Node first = new Node() { value = 1 };
+
+            // Node second = new Node() { value = 2 };
+            // first.Next = second;
+
+            // Node three = new Node() { value = 3 };
+            // second.Next = three;
+
+            // PrintList(first);
+
+            // LinkedList<int> linkedList = new LinkedList<int>();
+            // linkedList.AddFirst(new LinkedListNode<int>(1));
+            // linkedList.AddLast(new LinkedListNode<int>(2));
+            // linkedList.AddLast(new LinkedListNode<int>(3));
+            // try
+            // {
+            //     var linkList = linkedList.GetEnumerator();
+            // }
+            // catch(Exception e)
+            // {
+            //     Console.WriteLine(e.StackTrace);
+            // }
         }
 
         private static void PrintList(Node node)

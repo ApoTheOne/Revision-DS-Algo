@@ -7,21 +7,39 @@ namespace Revision_DS_Algo
     {
         static void Main(string[] args)
         {
-            Stack stack = new Stack(4);
-            stack.Push("a");
-            stack.Push("b");
-            stack.Push("c");
-            stack.Push("d");
-            stack.Push("e");
+            Queue queue = new Queue(4);
+            queue.Insert(10);
+            queue.Insert(20);
+            queue.Insert(30);
+            queue.Insert(40);
+            queue.Insert(50);
+            
+            WriteLine($"Peeking into the front element: {queue.PeekFront()}");
 
-            WriteLine($"Peeking into the top element: {stack.Peek()}");
-
-            WriteLine("Stack elements: ");
-            while(!stack.IsEmpty())
+            WriteLine("Queue elements: ");
+            queue.DisplayQueueItems();
+            while(!queue.IsEmpty())
             {
-                string item = stack.Pop();
-                WriteLine($"Popped out {item}");
+                long item = queue.Remove();
+                WriteLine($"Removing {item}");
+                WriteLine($"Now the front element is: {queue.PeekFront()}");
             }
+
+            // Stack stack = new Stack(4);
+            // stack.Push("a");
+            // stack.Push("b");
+            // stack.Push("c");
+            // stack.Push("d");
+            // stack.Push("e");
+
+            // WriteLine($"Peeking into the top element: {stack.Peek()}");
+
+            // WriteLine("Stack elements: ");
+            // while(!stack.IsEmpty())
+            // {
+            //     string item = stack.Pop();
+            //     WriteLine($"Popped out {item}");
+            // }
 
             // Node first = new Node() { value = 1 };
 
